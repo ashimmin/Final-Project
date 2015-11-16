@@ -24,6 +24,7 @@ analogWrite(bluePin, 0); //75 to blue pin
 --------------------------------------------------------------
 
 I then wanted to experiment with an easier way to view the color blending. Attaching three potentiometers to the A0, A1, and A2 pins, I took code that assigns each potentiometer to a color, an experimented with the more hands on approach to the changing colors. I still don't fully understand the extra variables in the code below, so I hope to study up on those to utilize them later in this project.
+http://www.silvinopresa.com/arduino/rgb-led-common-annode-controlled-by-potentiometers-and-arduino/
 
 
 --------------------------------------------------------------THREE POT RGB CONTROLLER
