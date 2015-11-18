@@ -85,3 +85,13 @@ Next steps:
 - Create exercises for blinking LED's and color changing.
 - LED matrix?
 - Bring in ceramic prototype and experiment with what brightness values are needed to shine through.
+- 
+
+
+
+11/18/15
+
+"avrdude: stk500_recv(): programmer is not responding"
+"avrdude: stk500_getsync() attempt 10 of 10: not in sync: resp=0x00"
+
+Code is failing to upload to the arduino. I expected it to upload with no problem but something seems to be in the way. I'm working with an Arduino mini so I assume that the problem lies with it not hooking up properly with the breadboard- as they are now one piece.
