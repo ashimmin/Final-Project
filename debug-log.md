@@ -91,7 +91,13 @@ Next steps:
 
 11/18/15
 
+9:35am
+
 "avrdude: stk500_recv(): programmer is not responding"
 "avrdude: stk500_getsync() attempt 10 of 10: not in sync: resp=0x00"
 
 Code is failing to upload to the arduino. I expected it to upload with no problem but something seems to be in the way. I'm working with an Arduino mini so I assume that the problem lies with it not hooking up properly with the breadboard- as they are now one piece.
+-Solved problem by specifying that the arduino is a micro, not a standard.
+
+10:59am
+Arduino finished uploading but the lights on the board won't turn on. Looking at the board I think I haven't specified the LED's to the right pins. Looking at the board, my LED's turned on after I switched them around. The power was connected to ground!!! !
