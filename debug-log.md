@@ -97,7 +97,59 @@ Next steps:
 "avrdude: stk500_getsync() attempt 10 of 10: not in sync: resp=0x00"
 
 Code is failing to upload to the arduino. I expected it to upload with no problem but something seems to be in the way. I'm working with an Arduino mini so I assume that the problem lies with it not hooking up properly with the breadboard- as they are now one piece.
--Solved problem by specifying that the arduino is a micro, not a standard.
+::Solved problem by specifying that the arduino is a micro, not a standard.::
 
 10:59am
-Arduino finished uploading but the lights on the board won't turn on. Looking at the board I think I haven't specified the LED's to the right pins. Looking at the board, my LED's turned on after I switched them around. The power was connected to ground!!! !
+Arduino finished uploading but the lights on the board won't turn on. Looking at the board I think I haven't specified the LED's to the right pins. 
+::My LED's turned on after I switched them around. The power was connected to ground!!! !::
+
+11:07am
+When I turn the potentiometer, the white LED, which is already on, gets brighter. About half way the blue LED turns on and the second pot is rendered useless. I assume its a variable in the code thats connecting both LED's to the pot. 
+   :: Blue pin was connected to the white pin port.:: Switched them and idk what the new problem is but the pot is still not working. Messed around with the ports of the pots, instead of A0, and A1, I added A1 and A2 and that aligned everything correctly. 
+    The White LED is acting as a digitalWrite right now so I need to work on making it a spectrum. 
+
+    11:29am
+    ::Sorted out any confusion with my board. the digitalWrite effect was due to the fact that 2 isnt a PWM port so I changed it over to 5 which is. 
+    That fixed the problem! :^)::
+    
+11:34am
+::brightness difference changed due to the fact that I had two different resistors.::
+
+-------------------------------------------------------------------------------------------------------
+int whitePin = 3;
+int bluePin = 5;
+
+int whitePot = A2;
+int bluePot = A1;
+
+
+int readValue_white;
+int readValue_blue;
+
+
+int writeValue_white;
+int writeValue_blue;
+
+
+void setup() {
+  pinMode(whitePot, INPUT);
+  pinMode(bluePot, INPUT);
+
+  pinMode(whitePin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+
+}
+
+void loop() {
+  writeValue_white = map(readValue_white, 0, 1023, 0, 255);
+  writeValue_blue = map(readValue_blue, 0, 1023, 0, 255);
+
+  analogWrite(whitePin, writeValue_white);
+  analogWrite(bluePin, writeValue_blue);
+
+  readValue_white = analogRead(whitePot);
+  readValue_blue = analogRead(bluePot);
+}
+----------------------------------------------------------------------------------------------------------
+
+Tested out different colors and how they shine through. Colors don't blend together very well through the porcelain.
