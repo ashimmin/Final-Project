@@ -153,3 +153,15 @@ void loop() {
 ----------------------------------------------------------------------------------------------------------
 
 Tested out different colors and how they shine through. Colors don't blend together very well through the porcelain.
+
+After recieving the Neopixels, various attempts were made to have an even number of lights that still fit around the mug. Having not ordered enough neopixels, instead of seven rings of 16, there are 5 rings of 12.
+
+When attempting to make the lights increase and decrease based on a new tweet being delivered, it seems to bug out when dealing with a negative number.
+fixed it by changing the starting count to 3 instead of 0 and added = to every proportion to make every tweet contribute to the cup.
+
+Streaming API is way out of my league, no clue what to do to get all these errors to stop.
+fixed by JD as well as connecting it to arduino.
+
+soldering troubles. self explanatory.
+----------------------------------------------------------------------------------------------------------
+
