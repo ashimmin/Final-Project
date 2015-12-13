@@ -1,0 +1,98 @@
+#include <Adafruit_NeoPixel.h>
+
+#define PIN      6
+#define N_LEDS 60
+
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(N_LEDS, PIN, NEO_GRB + NEO_KHZ800);
+
+void setup() {
+  strip.begin();
+
+
+  //  chase(strip.Color(50, 0, 0)); // Red
+  //  chase(strip.Color(0, 50, 0)); // Green
+  //  chase(strip.Color(0, 0, 50)); // Blue
+
+  Serial.begin(9600);  // Begin the serial monitor at 9600bps
+}
+
+void loop() {
+  if (Serial.available())
+  {
+    String num = Serial.readStringUntil('\n');
+    Serial.println(num);
+    int dataPort = num.toInt();
+
+    if (dataPort >= 1) {
+      for (int i = 0; i <= 10; i++) {
+        strip.setPixelColor(i , strip.Color(0, 200, 0)); // Draw new pixel
+        strip.show();
+        delay(25);
+      }
+    }
+    else {
+      for (int i = 0; i <= 10; i++) {
+        strip.setPixelColor(i , strip.Color(0, 0, 0)); // bottom of cup
+        strip.show();
+      }
+    }
+    if (dataPort >= 2) {
+      for (int i = 11; i <= 21; i++) {
+        strip.setPixelColor(i , strip.Color(0, 200, 200)); // Draw new pixel
+        strip.show();
+        delay(25);
+      }
+    }
+    else {
+      for (int i = 11; i <= 21; i++) {
+        strip.setPixelColor(i , strip.Color(0, 0, 0)); // bottom of cup
+        strip.show();
+      }
+    }
+    if (dataPort >= 3) {
+      for (int i = 22; i <= 32; i++) {
+        strip.setPixelColor(i , strip.Color(0, 200, 200)); // Draw new pixel
+        strip.show();
+        delay(25);
+      }
+    }
+    else {
+      for (int i = 22; i <= 32; i++) {
+        strip.setPixelColor(i , strip.Color(0, 0, 0)); // bottom of cup
+        strip.show();
+      }
+    }
+    if (dataPort >= 4 ) {
+      for (int i = 33; i <= 42; i++) {
+        strip.setPixelColor(i , strip.Color(0, 200, 200)); // Draw new pixel
+        strip.show();
+        delay(25);
+      }
+    }
+    else {
+      for (int i = 33; i <= 42; i++) {
+        strip.setPixelColor(i , strip.Color(0, 0, 0)); // bottom of cup
+        strip.show();
+      }
+    }
+    if (dataPort >= 5) {
+      for (int i = 43; i <= 59; i++) {
+        strip.setPixelColor(i , strip.Color(0, 0, 200)); // bottom of cup
+        strip.show();
+        delay(25);
+      }
+    }
+    else {
+      for (int i = 43; i <= 59; i++) {
+        strip.setPixelColor(i , strip.Color(0, 0, 0)); // bottom of cup
+        strip.show();
+      }
+    }
+
+    //    static void chase(uint32_t c) {
+  }
+
+}
+
+
+//serial write every time number changes from processing
